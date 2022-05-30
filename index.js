@@ -24,4 +24,4 @@ lark.event.setTypeHandler(conf, "app_open", (ctx, event) => {
     console.log(event);
 })
 
-lark.event.startServer(conf, 8089)
+lark.event.startServer(conf, 3000)
