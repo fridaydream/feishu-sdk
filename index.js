@@ -59,6 +59,13 @@ lark.event.setTypeHandler(conf, "user_update", (ctx, event) => {
     console.log(event);
 })
 
+lark.event.setTypeHandler(conf, "app_open", (ctx, event) => {
+  // 打印请求的Request ID
+  console.log(ctx.getRequestID());
+  // 打印事件
+  console.log(event);
+})
+
 const app = express();
 
 app.use(express.json())
@@ -76,6 +83,8 @@ app.post('/webhook/event', function (req, res, next) {
         res.status(response.statusCode).send(response.body)
     })
 })
+
+
 
 // startup event http server by express, port: 8089
 app.listen(3000, () => {
